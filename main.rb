@@ -1,10 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
+require './model/models'
 
-class Task
-	include DataMapper::Resource
-	property :id,	Serial
-	property :name, String, :required => true
-	property :complete_at, DateTime
+get '/' do 
+	@categories = Cagegory.all
 end
-DataMapper.finalize
